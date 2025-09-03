@@ -322,7 +322,7 @@ def process_eval_args(args_dict: dict) -> dict:
     for key in ["retrieval_results_path", "retrieval_text_key", "ctx_key", "matching_key", "k", "rerank_k", "sources_to_keep", "sources_to_filter", "presort_key", "sort_key", "threshold"]:
         offline_retrieval_config[key] = args_dict.pop(key, None)
 
-    if offline_retrieval_config["retrieval_results_path"].startswith("s3://"):
+    if offline_retrieval_config["retrieval_results_path"] and offline_retrieval_config["retrieval_results_path"].startswith("s3://"):
         download_file_from_s3(offline_retrieval_config["retrieval_results_path"], destination_file="/tmp/retrieval_results.jsonl")
         offline_retrieval_config["retrieval_results_path"] = "/tmp/retrieval_results.jsonl"
 

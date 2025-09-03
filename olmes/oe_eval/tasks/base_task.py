@@ -6,6 +6,9 @@ import re
 from abc import abstractmethod
 from copy import deepcopy
 from typing import Iterable, List, Optional, Sequence, Union, cast
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[3]))
 
 import datasets
 
