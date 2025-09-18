@@ -27,7 +27,7 @@ pip install torch transformers datasets pipeline smart_open pyserini vllm==0.8.4
 
 Export your HF access token (for gated HF models)
 ```bash
-export HF_TOKEN={your_hf_token}
+huggingface-cli login --token <your_hf_token>
 ```
 
 <!-- Currently, generation is primarily done with `vllm`. Generation with other modes such as `hf` are not fully supported. -->
@@ -59,7 +59,9 @@ python olmes/oe_eval/run_eval.py \
 <!-- (TODO: how to get the numbers you need for all datasets, including per-subject numbers) -->
 Now with the results for MMLU Pro, observe the metrices using the following command.
 ```bash
-python scripts/aggregate_eval_results.py --result_file_dir output --output_dir metrics
+python scripts/aggregate_eval_results.py --result_file_dir /home/akiho.kawada/compactds-eval/output --output_dir /home/akiho.kawada/compactds-eval/output/qwen25-7B-k\=3-mmlu-exact/ --method_names qwen25-7B-k\=3-mmlu-exact
+
+# python scripts/aggregate_eval_results.py --result_file_dir output --output_dir metrics
 ```
 This script also handles computing scores for specific benchmark subcategories, namely MMLU STEM, Social Sciences, Humanities, Other; and GPQA Physics, Biology, and Chemistry.
 
