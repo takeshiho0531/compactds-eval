@@ -7,6 +7,9 @@ import os
 from collections import defaultdict
 from pathlib import Path
 from texttable import Texttable
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from olmes.oe_eval.tasks.aggregate_tasks import add_aggregate_tasks
 
