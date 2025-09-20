@@ -28,7 +28,7 @@ class TriviaQA(Task):
         "dataset_name": "rc.web.nocontext",
         "native_id_field": "question_id",
         "primary_metric": "f1",
-        "split": "validation",
+        "split": "train",
         "fewshot_source": None,
         "context_kwargs": {
             "description": None,  # "Answer the following question."
