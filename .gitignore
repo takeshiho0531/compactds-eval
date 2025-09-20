@@ -16,3 +16,4 @@ data
 output/* 
 datastore/*
 tmp/*
+retrieved_results/*

@@ -25,7 +25,7 @@ _CITATION = """
 class TriviaQA(Task):
     TASK_CONFIG_DEFAULTS: dict = {
         "dataset_path": "mandarjoshi/trivia_qa",
-        "dataset_name": "rc.wikipedia.nocontext",
+        "dataset_name": "rc.web.nocontext",
         "native_id_field": "question_id",
         "primary_metric": "f1",
         "split": "validation",

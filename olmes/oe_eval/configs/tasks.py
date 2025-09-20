@@ -1046,7 +1046,7 @@ TASK_CONFIGS.update(
         },
         "triviaqa::olmes": {
             "task_name": "triviaqa",
-            "split": "validation",
+            "split": "train",
             "primary_metric": "f1",
             "num_shots": 5,
             "fewshot_source": "OLMES:triviaqa",
