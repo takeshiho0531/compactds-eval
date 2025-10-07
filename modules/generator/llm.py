@@ -1,5 +1,6 @@
 # import easyapi
 import os 
+os.environ.setdefault("TRANSFORMERS_NO_TORCHVISION", "1")
 import time
 import torch
 
@@ -11,8 +12,8 @@ from transformers import (
 )    
 from transformers.pipelines.pt_utils import KeyDataset
 from tqdm import tqdm
-from vllm import LLM, SamplingParams
-from vllm.sampling_params import GuidedDecodingParams
+# from vllm import LLM, SamplingParams
+# from vllm.sampling_params import GuidedDecodingParams
 
 from .model_utils import convert_model_to_int8_on_gpu
 
@@ -49,6 +50,8 @@ class LanguageModel(object):
     def load_model(self, **kwargs):
         if not self.llm:
             if self.model_type == 'vllm': 
+                from vllm import LLM, SamplingParams
+                from vllm.sampling_params import GuidedDecodingParams
                 if self.model_name.startswith("allenai/"):
                     self.max_input_len = 4096
                 if self.max_input_len:

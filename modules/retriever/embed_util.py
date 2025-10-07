@@ -6,6 +6,11 @@ import torch
 from gritlm import GritLM
 from transformers import AutoTokenizer, AutoModel
 from tqdm import tqdm
+from transformers.cache_utils import DynamicCache
+if not hasattr(DynamicCache, "get_usable_length"):
+    def _get_usable_length(self, seq_length, layer_idx: int = 0):
+        return self.get_seq_length(layer_idx)
+    DynamicCache.get_usable_length = _get_usable_length
 
 from ..corpus import Corpus
 

@@ -1,13 +1,15 @@
 '''
 Script to prepare data with retrieval results for evaluation, including reranking options
 '''
-import os
+import os, sys
 import random
 
 from collections import defaultdict
 from pathlib import Path
 from simple_parsing import ArgumentParser
 
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 from olmes.oe_eval.launch import resolve_task_suite
 from src.rerank.config import (
     EmbeddingRerankConfig,
